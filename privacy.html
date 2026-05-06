@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lyfto — Privacy Policy</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<main>
+  <header>
+    <div class="brand-mark"></div>
+    <span class="brand-name">Lyfto</span>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="privacy.html" class="active">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </header>
+
+  <div class="eyebrow">Privacy Policy</div>
+  <h1>How Lyfto handles your data.</h1>
+  <p class="updated">Last updated: 2026-05-06</p>
+
+  <p>This policy describes how the Lyfto mobile app ("Lyfto", "we", "us") collects, uses, and protects your information. By using Lyfto you agree to the practices below. If you do not agree, do not use the app.</p>
+
+  <h2>1. Who we are</h2>
+  <p>Lyfto is a workout-tracking app for iOS and Android. Contact: <a href="mailto:akselcb@gmail.com">akselcb@gmail.com</a>.</p>
+
+  <h2>2. What we collect</h2>
+  <p>Only the data you explicitly enter or grant permission for. We do <strong>not</strong> collect location, contacts, or browsing history.</p>
+
+  <table>
+    <thead>
+      <tr><th>Type</th><th>Purpose</th><th>Stored where</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Email + password</td>
+        <td>Account authentication</td>
+        <td>Supabase (EU, Ireland). Password is hashed; we cannot read it.</td>
+      </tr>
+      <tr>
+        <td>Workout sessions (sets, reps, weights, exercises, notes)</td>
+        <td>Show your training history; compute personal records</td>
+        <td>On-device + Supabase (EU)</td>
+      </tr>
+      <tr>
+        <td>Personal records, body weight, body measurements</td>
+        <td>Track progress over time</td>
+        <td>On-device + Supabase (EU)</td>
+      </tr>
+      <tr>
+        <td>Heart-rate samples (Apple Health)</td>
+        <td>Show live BPM during workouts; compute session averages</td>
+        <td>On-device only — read from Apple Health on demand. Saved as a number on the workout record.</td>
+      </tr>
+      <tr>
+        <td>Coach chat history</td>
+        <td>Provide an AI coach that knows your training context</td>
+        <td>On-device. Each message is sent to Google Gemini for processing (see §4).</td>
+      </tr>
+      <tr>
+        <td>Progress photos</td>
+        <td>Track visual changes over time</td>
+        <td>On-device only. <strong>Never uploaded.</strong></td>
+      </tr>
+      <tr>
+        <td>Crash reports + diagnostic data</td>
+        <td>Find and fix bugs</td>
+        <td>Sentry. Includes device model, OS version, stack trace. No personal content.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>3. Permissions we ask for</h2>
+  <p>You can revoke any of these in your device settings at any time.</p>
+  <ul>
+    <li><strong>Apple Health</strong> — read heart-rate data during workouts; write completed workouts back to Health so they appear in your Activity history.</li>
+    <li><strong>Camera + Photo Library</strong> — only if you choose to add a progress photo. The photo is saved on your device and never leaves it.</li>
+    <li><strong>Notifications</strong> — rest-timer alerts and (optional) daily workout reminders.</li>
+  </ul>
+
+  <h2>4. Third parties</h2>
+  <p>Lyfto uses the following services. Each receives only the data shown.</p>
+
+  <table>
+    <thead>
+      <tr><th>Service</th><th>What it sees</th><th>Purpose</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase</a></td>
+        <td>Email, hashed password, workouts, personal records, body measurements</td>
+        <td>Cloud database + authentication so your data syncs across devices. Servers in EU (Ireland).</td>
+      </tr>
+      <tr>
+        <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Gemini</a></td>
+        <td>Coach messages + a context block summarising your recent workouts and goals (no email or password)</td>
+        <td>AI processing for the in-app coach. Requests pass through our Supabase Edge Function so the API key stays on our servers.</td>
+      </tr>
+      <tr>
+        <td><a href="https://sentry.io/privacy/" target="_blank" rel="noopener">Sentry</a></td>
+        <td>Crash stack traces + device + OS info</td>
+        <td>Detect and fix bugs. No workout content or chat content is sent.</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple HealthKit</a></td>
+        <td>Heart-rate (read), workout sessions (write)</td>
+        <td>Stays on your device. Apple does not receive Lyfto-generated data.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>We do not sell, rent, or trade your data. We do not use your data for advertising or third-party analytics.</p>
+
+  <h2>5. Data retention</h2>
+  <p>Your data is kept for as long as your account exists. When you delete your account inside the app (Profile → Delete account), the following happens immediately:</p>
+  <ul>
+    <li>All workouts, personal records, body measurements deleted from Supabase.</li>
+    <li>Your authentication record deleted from Supabase.</li>
+    <li>Any data still on your device (coach history, photos, settings) is removed when you uninstall the app.</li>
+  </ul>
+  <p>Deletion is permanent and not recoverable. Sentry crash logs are retained for up to 90 days for debugging and then auto-purged.</p>
+
+  <h2>6. Your rights (GDPR)</h2>
+  <p>If you live in the European Economic Area, the UK, or Switzerland, you have these rights under GDPR:</p>
+  <ul>
+    <li><strong>Access</strong> — export all your data via Profile → Export Data (JSON file).</li>
+    <li><strong>Rectification</strong> — edit any workout, set, or measurement directly in the app.</li>
+    <li><strong>Erasure</strong> — delete your account from Profile → Delete Account, or email us.</li>
+    <li><strong>Portability</strong> — the export is a standard JSON file you can take with you.</li>
+    <li><strong>Object / restrict processing</strong> — email us.</li>
+    <li><strong>Lodge a complaint</strong> — contact your local data protection authority.</li>
+  </ul>
+
+  <h2>7. Children</h2>
+  <p>Lyfto is not directed at children under 13. We do not knowingly collect data from anyone under 13. If you believe a child under 13 has created an account, contact us and we will delete it.</p>
+
+  <h2>8. Security</h2>
+  <p>We use industry-standard security: TLS for all network traffic, hashed passwords, JWT-based authentication, and server-side API keys. No system is perfectly secure, so we cannot guarantee absolute protection — but we follow current best practices and act fast on any vulnerability we learn about.</p>
+
+  <h2>9. Changes to this policy</h2>
+  <p>If we change this policy in a way that affects your rights, we will notify you in the app before the change takes effect. The "Last updated" date at the top always reflects the current version.</p>
+
+  <h2>10. Contact</h2>
+  <p>Questions, requests, or complaints: <a href="mailto:akselcb@gmail.com">akselcb@gmail.com</a>.</p>
+
+  <footer>
+    <span>© Lyfto</span>
+    <span class="dot"></span>
+    <a href="terms.html" style="border:none;color:inherit;">Terms</a>
+    <span class="dot"></span>
+    <a href="index.html" style="border:none;color:inherit;">Home</a>
+  </footer>
+</main>
+</body>
+</html>
