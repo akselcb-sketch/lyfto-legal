@@ -20,7 +20,7 @@
 
   <div class="eyebrow">Privacy Policy</div>
   <h1>How Lyfto handles your data.</h1>
-  <p class="updated">Last updated: 2026-05-09</p>
+  <p class="updated">Last updated: 2026-05-09 (rev 2)</p>
 
   <p>This policy describes how the Lyfto mobile app ("Lyfto", "we", "us") collects, uses, and protects your information. By using Lyfto you agree to the practices below. If you do not agree, do not use the app.</p>
 
@@ -67,8 +67,8 @@
       </tr>
       <tr>
         <td>Progress photos</td>
-        <td>Track visual changes over time</td>
-        <td>On-device only. <strong>Never uploaded.</strong></td>
+        <td>Track visual changes over time across reinstalls and devices</td>
+        <td>On-device + Supabase Storage (EU, Ireland). Stored in a private bucket scoped to your account — only you can read or write your own photos.</td>
       </tr>
       <tr>
         <td>Crash reports + diagnostic data</td>
@@ -82,7 +82,7 @@
   <p>You can revoke any of these in your device settings at any time.</p>
   <ul>
     <li><strong>Apple Health</strong> — read heart-rate data during workouts; write completed workouts back to Health so they appear in your Activity history.</li>
-    <li><strong>Camera + Photo Library</strong> — only if you choose to add a progress photo. The photo is saved on your device and never leaves it.</li>
+    <li><strong>Camera + Photo Library</strong> — only if you choose to add a progress photo. The photo is saved on your device and uploaded to your private Supabase Storage bucket so it survives reinstalls.</li>
     <li><strong>Notifications</strong> — rest-timer alerts and (optional) daily workout reminders.</li>
   </ul>
 
@@ -96,8 +96,8 @@
     <tbody>
       <tr>
         <td><a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase</a></td>
-        <td>Email, hashed password, workouts, personal records, body measurements</td>
-        <td>Cloud database + authentication so your data syncs across devices. Servers in EU (Ireland).</td>
+        <td>Email, hashed password, workouts, personal records, body measurements, progress photos</td>
+        <td>Cloud database + Storage + authentication so your data syncs across devices. Servers in EU (Ireland). Progress photos live in a private Storage bucket with row-level access scoped to your user ID.</td>
       </tr>
       <tr>
         <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Gemini</a></td>
