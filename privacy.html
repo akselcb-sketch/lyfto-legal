@@ -20,7 +20,7 @@
 
   <div class="eyebrow">Privacy Policy</div>
   <h1>How Lyfto handles your data.</h1>
-  <p class="updated">Last updated: 2026-05-10</p>
+  <p class="updated">Last updated: 2026-05-09</p>
 
   <p>This policy describes how the Lyfto mobile app ("Lyfto", "we", "us") collects, uses, and protects your information. By using Lyfto you agree to the practices below. If you do not agree, do not use the app.</p>
 
@@ -39,6 +39,11 @@
         <td>Email + password</td>
         <td>Account authentication</td>
         <td>Supabase (EU, Ireland). Password is hashed; we cannot read it.</td>
+      </tr>
+      <tr>
+        <td>Apple Sign-In credentials (user identifier; optionally email and name)</td>
+        <td>Alternative account authentication on iOS</td>
+        <td>Supabase (EU, Ireland). If you choose Apple's email-relay option, we only ever see the relay address — never your real email.</td>
       </tr>
       <tr>
         <td>Workout sessions (sets, reps, weights, exercises, notes)</td>
@@ -108,6 +113,11 @@
         <td><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple HealthKit</a></td>
         <td>Heart-rate (read), workout sessions (write)</td>
         <td>Stays on your device. Apple does not receive Lyfto-generated data.</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple Sign-In</a></td>
+        <td>Apple-issued user identifier; optional email and name (only on first sign-in)</td>
+        <td>Used solely to create and authenticate your Lyfto account. We never receive your Apple ID password.</td>
       </tr>
     </tbody>
   </table>
