@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Lyfto — Privacy Policy</title>
+<title>Lyfto: Privacy Policy</title>
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -20,12 +20,12 @@
 
   <div class="eyebrow">Privacy Policy</div>
   <h1>How Lyfto handles your data.</h1>
-  <p class="updated">Last updated: 2026-06-26 (rev 4)</p>
+  <p class="updated">Last updated: 2026-09-25 (rev 5)</p>
 
   <p>This policy describes how the Lyfto mobile app ("Lyfto", "we", "us") collects, uses, and protects your information. By using Lyfto you agree to the practices below. If you do not agree, do not use the app.</p>
 
   <h2>1. Who we are</h2>
-  <p>Lyfto is a workout-tracking app for iOS. Lyfto is published by <strong>Aksel Cornelius Bjorland</strong>, who is the data controller responsible for your information. Contact: <a href="mailto:supportlyfto@gmail.com">supportlyfto@gmail.com</a>.</p>
+  <p>Lyfto is a workout-tracking app for iOS and Android. Lyfto is published by <strong>Aksel Cornelius Bjorland</strong>, who is the data controller responsible for your information. Contact: <a href="mailto:supportlyfto@gmail.com">supportlyfto@gmail.com</a>.</p>
 
   <h2>2. What we collect</h2>
   <p>Only the data you explicitly enter or grant permission for. We do <strong>not</strong> collect location, contacts, or browsing history.</p>
@@ -42,8 +42,13 @@
       </tr>
       <tr>
         <td>Apple Sign-In credentials (user identifier; optionally email and name)</td>
-        <td>Alternative account authentication on iOS</td>
-        <td>Supabase (EU, Ireland). If you choose Apple's email-relay option, we only ever see the relay address — never your real email.</td>
+        <td>Alternative account authentication (iOS only)</td>
+        <td>Supabase (EU, Ireland). If you choose Apple's email-relay option, we only ever see the relay address, never your real email.</td>
+      </tr>
+      <tr>
+        <td>Google Sign-In credentials (name and email)</td>
+        <td>Alternative account authentication (iOS and Android)</td>
+        <td>Supabase (EU, Ireland). Google provides your name and email address; we use them only to create and sign in to your account.</td>
       </tr>
       <tr>
         <td>Workout sessions (sets, reps, weights, exercises, notes)</td>
@@ -56,19 +61,24 @@
         <td>On-device + Supabase (EU)</td>
       </tr>
       <tr>
-        <td>Heart-rate samples (Apple Health)</td>
-        <td>Show live BPM during workouts; compute session averages</td>
-        <td>On-device only — read from Apple Health on demand. Saved as a number on the workout record.</td>
+        <td>Sex and birthdate</td>
+        <td>Used to calculate your Strength Score. Optional, but if not set the app calculates your score as if you were male, so we ask you to set it accurately.</td>
+        <td>On-device + Supabase (EU). Synced as part of your coach preferences.</td>
       </tr>
       <tr>
-        <td>Coach chat history</td>
-        <td>Provide an AI coach that knows your training context</td>
-        <td>On-device. Each message is sent to Google Gemini for processing (see §4).</td>
+        <td>Heart-rate samples (Apple Health, iOS only)</td>
+        <td>Show live BPM during workouts; compute session averages</td>
+        <td>On-device only, read from Apple Health on demand. Saved as a number on the workout record. Not available on Android.</td>
+      </tr>
+      <tr>
+        <td>Coach chat history and coach memory notes</td>
+        <td>Provide an AI coach that knows your training context and remembers things you have told it</td>
+        <td>On-device + Supabase (EU) for memory notes. Each message is sent to Google Gemini for processing (see section 4).</td>
       </tr>
       <tr>
         <td>Progress photos</td>
         <td>Track visual changes over time across reinstalls and devices</td>
-        <td>On-device + Supabase Storage (EU, Ireland). Stored in a private bucket scoped to your account — only you can read or write your own progress photos.</td>
+        <td>On-device + Supabase Storage (EU, Ireland). Stored in a private bucket scoped to your account, only you can read or write your own progress photos.</td>
       </tr>
       <tr>
         <td>Public profile (display name, handle, bio, avatar)</td>
@@ -77,8 +87,8 @@
       </tr>
       <tr>
         <td>Posts you choose to share (a workout summary, a caption, and an optional photo)</td>
-        <td>Share your training to a group, your followers, or publicly — only when you tap "Del økten"</td>
-        <td>Supabase (EU). The optional post photo is uploaded to a public Storage bucket. A post is visible to others according to the per-post privacy setting you pick (just me, group, followers, or public).</td>
+        <td>Share your training to a group, your followers, or publicly, only when you tap "Del økten"</td>
+        <td>Supabase (EU). The optional post photo is uploaded to a private Storage bucket and shown only to the audience of that post. Your avatar photo, if you set one, is stored in a public bucket. A post is visible to others according to the per-post privacy setting you pick (just me, group, followers, or public).</td>
       </tr>
       <tr>
         <td>Comments and likes you make</td>
@@ -86,14 +96,39 @@
         <td>Supabase (EU). Visible to people who can see the post.</td>
       </tr>
       <tr>
-        <td>Follow graph + group membership</td>
-        <td>Build your feed and group leaderboards</td>
-        <td>Supabase (EU). Who you follow / who follows you, and which groups you belong to.</td>
+        <td>Follow graph + group membership + weekly league placement</td>
+        <td>Build your feed, group leaderboards, and weekly tonnage leagues</td>
+        <td>Supabase (EU). Who you follow, who follows you, which groups you belong to, and which weekly league you are placed in if your profile is public.</td>
       </tr>
       <tr>
-        <td>Blocks and content reports</td>
-        <td>Let you block users and report content; auto-hide content that enough people report</td>
-        <td>Supabase (EU). Your block list is visible only to you.</td>
+        <td>People search and direct messages</td>
+        <td>Let you find other users and message them directly</td>
+        <td>Supabase (EU). Direct messages are visible to the sender and recipient. A search index of public and discoverable profiles is used to power search.</td>
+      </tr>
+      <tr>
+        <td>Blocks, content reports, and coach-answer reports</td>
+        <td>Let you block users, report posts, comments, profiles, and AI coach answers; auto-hide content that enough people report</td>
+        <td>Supabase (EU). Your block list is visible only to you. A coach-answer report stores the reported answer text, a reason, and an optional note; it is readable only by us, never by other users, not even you.</td>
+      </tr>
+      <tr>
+        <td>Referral codes and gift links</td>
+        <td>Let you invite friends and send or redeem Pro gift links</td>
+        <td>Supabase (EU). Records who invited whom and who redeemed a gift link.</td>
+      </tr>
+      <tr>
+        <td>First-party product analytics (for example: onboarding steps completed, workouts started or finished, sets logged including their weight and reps, app version, platform)</td>
+        <td>Understand how people use Lyfto so we can fix problems and improve the app</td>
+        <td>Supabase (EU). Not shared with any third-party analytics or advertising company. See section 4.</td>
+      </tr>
+      <tr>
+        <td>Push notification token and push content</td>
+        <td>Deliver rest-timer alerts, workout reminders, and social notifications (likes, comments, follows, direct messages)</td>
+        <td>Supabase (EU), delivered via Expo's push service and, on Android, Firebase Cloud Messaging.</td>
+      </tr>
+      <tr>
+        <td>App update client identifier</td>
+        <td>Deliver over-the-air app updates to the correct app version</td>
+        <td>Expo EAS Update. Not linked to your Lyfto account.</td>
       </tr>
       <tr>
         <td>Crash reports + diagnostic data</td>
@@ -103,14 +138,14 @@
     </tbody>
   </table>
 
-  <p><strong>Social features and visibility.</strong> Lyfto has optional social features (a profile, groups, posts, comments, likes, and following). Anything social is <strong>opt-in</strong>: nothing about your training is shared until you create a profile or tap "Del økten" to publish a specific workout. You choose the audience for your profile and for each post (just you, a group, your followers, or public). Two important points: (1) a photo you attach to a post, and a photo you set as your avatar, are stored in a <strong>public</strong> Storage bucket and are visible to anyone who can see that post or profile — unlike private progress photos, which only you can see; (2) other users can see, like, comment on, and report content you share. We provide blocking and reporting tools, and content that enough people report is automatically hidden.</p>
+  <p><strong>Social features and visibility.</strong> Lyfto has optional social features (a profile, groups, posts, comments, likes, following, people search, and direct messages). When you create your account, we ask "Who can see your training?" with nothing preselected: you choose Public or Private before any profile is created. If you choose Private, other users cannot see your workouts, personal records, or training history, and you are not placed in a weekly league or shown in people search results as publicly discoverable. If you choose Public, any signed-in user can see your workout history, personal records, and strength score, and you may be placed in a weekly league with other users. You can change this choice at any time in your profile settings. Publishing an individual post (tapping "Del økten") is a separate, further choice: you pick the audience for that post (just you, a group, your followers, or public), regardless of your profile visibility. Other users can see, like, comment on, and report content you share, and report your profile, posts, comments, direct messages you send them, or an AI coach answer. We provide blocking and reporting tools, and content that enough people report is automatically hidden.</p>
 
   <h2>3. Permissions we ask for</h2>
   <p>You can revoke any of these in your device settings at any time.</p>
   <ul>
-    <li><strong>Apple Health</strong> — read heart-rate data during workouts; write completed workouts back to Health so they appear in your Activity history.</li>
-    <li><strong>Camera + Photo Library</strong> — only if you choose to add a photo: a private progress photo (visible only to you) or a photo on a post / your avatar (visible to others, as described above). Photos are uploaded to Supabase Storage so they survive reinstalls.</li>
-    <li><strong>Notifications</strong> — rest-timer alerts and (optional) daily workout reminders.</li>
+    <li><strong>Apple Health (iOS only)</strong>: read heart-rate data during workouts; write completed workouts back to Health so they appear in your Activity history. Not available on Android.</li>
+    <li><strong>Camera + Photo Library</strong>: only if you choose to add a photo: a private progress photo (visible only to you) or a photo on a post / your avatar (visible to others, as described above). Photos are uploaded to Supabase Storage so they survive reinstalls.</li>
+    <li><strong>Notifications</strong>: rest-timer alerts, optional daily workout reminders, and (on iOS and Android) social notifications such as likes, comments, follows, and direct messages.</li>
   </ul>
 
   <h2>4. Third parties</h2>
@@ -123,13 +158,13 @@
     <tbody>
       <tr>
         <td><a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase</a></td>
-        <td>Email, hashed password, workouts, personal records, body measurements, progress photos, and — if you use the social features — your profile, posts, post photos, comments, likes, follows, group membership, blocks and reports</td>
-        <td>Cloud database + Storage + authentication so your data syncs across devices and the social features work. Servers in EU (Ireland). Private progress photos live in a private Storage bucket scoped to your user ID; post photos and photo avatars live in a public Storage bucket so they render for the people you share them with.</td>
+        <td>Email, hashed password, workouts, personal records, body measurements, progress photos, analytics events, push tokens, and, if you use the social features, your profile, posts, post photos, comments, likes, follows, group membership, direct messages, blocks and reports</td>
+        <td>Cloud database + Storage + authentication so your data syncs across devices and the social features work. Servers in EU (Ireland). Private progress photos and post photos live in a private Storage bucket scoped to your user ID or to the post's audience; profile and post avatars live in a public Storage bucket so they render for anyone who can see the profile or post.</td>
       </tr>
       <tr>
         <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Gemini</a></td>
-        <td>Coach messages + a context block summarising your recent workouts and goals (no email or password)</td>
-        <td>AI processing for the in-app coach. Requests pass through our Supabase Edge Function so the API key stays on our servers.</td>
+        <td>Coach messages, a context block summarising your recent workouts and goals (no email or password), and avatar or post photos when they are automatically checked for safety before being shown to others</td>
+        <td>AI processing for the in-app coach, and automated image moderation for photos you upload to your profile or a post. Requests pass through our Supabase Edge Function so the API key stays on our servers. Google keeps coach questions and moderated images for a limited period of time for abuse monitoring, under Google's own terms.</td>
       </tr>
       <tr>
         <td><a href="https://sentry.io/privacy/" target="_blank" rel="noopener">Sentry</a></td>
@@ -137,46 +172,68 @@
         <td>Detect and fix bugs. No workout content or chat content is sent.</td>
       </tr>
       <tr>
-        <td><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple HealthKit</a></td>
+        <td><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple HealthKit (iOS only)</a></td>
         <td>Heart-rate (read), workout sessions (write)</td>
-        <td>Stays on your device. Apple does not receive Lyfto-generated data.</td>
+        <td>Stays on your device. Apple does not receive Lyfto-generated data. Not available on Android.</td>
       </tr>
       <tr>
-        <td><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple Sign-In</a></td>
+        <td><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple Sign-In (iOS only)</a></td>
         <td>Apple-issued user identifier; optional email and name (only on first sign-in)</td>
-        <td>Used solely to create and authenticate your Lyfto account. We never receive your Apple ID password.</td>
+        <td>Used solely to create and authenticate your Lyfto account. We never receive your Apple ID password. Not available on Android.</td>
+      </tr>
+      <tr>
+        <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Sign-In</a></td>
+        <td>Name and email address</td>
+        <td>Used solely to create and authenticate your Lyfto account. We never receive your Google account password.</td>
+      </tr>
+      <tr>
+        <td><a href="https://www.google.com/policies/privacy/" target="_blank" rel="noopener">Firebase Cloud Messaging (Android only)</a></td>
+        <td>A device push token</td>
+        <td>Delivers push notifications on Android, via Expo's push service. Not available on iOS, which uses Apple Push Notification service instead.</td>
       </tr>
     </tbody>
   </table>
 
-  <p>We do not sell, rent, or trade your data. We do not use your data for advertising or third-party analytics.</p>
+  <p>We do not sell, rent, or trade your data. We do not use your data for advertising or third-party analytics. We do use first-party analytics, described in section 2, to understand app usage and fix problems; this data is not shared outside the services listed above.</p>
 
   <h2>5. Data retention</h2>
-  <p>Your data is kept for as long as your account exists. When you delete your account inside the app (Profile → Delete account), the following happens immediately:</p>
+  <p>Your data is kept for as long as your account exists. When you delete your account inside the app (Social tab → your profile picture → Settings → Delete account), the following happens immediately:</p>
   <ul>
-    <li>All workouts, personal records, body measurements deleted from Supabase.</li>
-    <li>Your social data — profile, posts, post photos, comments, likes, follows, and group memberships — deleted from Supabase. (Comments left on other people's posts are detached and shown as "deleted user".)</li>
-    <li>Your authentication record deleted from Supabase.</li>
+    <li>All workouts, personal records, body measurements, progress photos, coach memory notes, strength goals, templates, custom programs, custom exercises, and favorites are deleted from Supabase.</li>
+    <li>Your social data, profile, posts, post photos, comments, likes, follows, group memberships, direct messages (both sides of every conversation), blocks, push tokens, league placement, referral records, and gift links, is deleted from Supabase.</li>
+    <li>Groups you own are handed to their longest-standing remaining member, unless you were the only member, in which case the group is deleted with your account.</li>
+    <li>Your authentication record is deleted from Supabase.</li>
     <li>Any data still on your device (coach history, photos, settings) is removed when you uninstall the app.</li>
   </ul>
-  <p>Deletion is permanent and not recoverable. Sentry crash logs are retained for up to 90 days for debugging and then auto-purged.</p>
+  <p>Some data is kept after your account is deleted, because it belongs to other people's records or to legitimate safety and accounting needs:</p>
+  <ul>
+    <li>Comments you left on other people's posts stay visible, shown as "deleted user" instead of your name.</li>
+    <li>Analytics events (section 2) are kept with your user identifier removed, so a workout count or a feature-usage trend is not lost, but the row can no longer be linked back to you.</li>
+    <li>Image-moderation records keep the storage path of a checked photo, but the photo itself is deleted.</li>
+    <li>Reports other users filed about you, your posts, or your comments, and group bans that name you, are kept for safety and moderation purposes.</li>
+    <li>Google Gemini keeps coach questions and moderated images for a limited period of time for abuse monitoring, under Google's own terms.</li>
+    <li>Sentry crash logs are retained for up to 90 days for debugging and then auto-purged.</li>
+    <li>Database backups roll off according to our hosting provider's backup retention schedule.</li>
+  </ul>
+  <p>Deletion of your account and the data listed above as deleted is permanent and not recoverable.</p>
 
   <h2>6. Your rights (GDPR)</h2>
   <p>If you live in the European Economic Area, the UK, or Switzerland, you have these rights under GDPR:</p>
   <ul>
-    <li><strong>Access</strong> — export all your data via Profile → Export Data (JSON file).</li>
-    <li><strong>Rectification</strong> — edit any workout, set, or measurement directly in the app.</li>
-    <li><strong>Erasure</strong> — delete your account from Profile → Delete Account, or email us.</li>
-    <li><strong>Portability</strong> — the export is a standard JSON file you can take with you.</li>
-    <li><strong>Object / restrict processing</strong> — email us.</li>
-    <li><strong>Lodge a complaint</strong> — contact your local data protection authority.</li>
+    <li><strong>Access</strong>: export all your data via Profile → Export Data (JSON file).</li>
+    <li><strong>Rectification</strong>: edit any workout, set, or measurement directly in the app.</li>
+    <li><strong>Erasure</strong>: delete your account from Profile → Delete Account, or email us.</li>
+    <li><strong>Portability</strong>: the export is a standard JSON file you can take with you.</li>
+    <li><strong>Object / restrict processing</strong>: email us.</li>
+    <li><strong>Lodge a complaint</strong>: contact your local data protection authority.</li>
   </ul>
 
-  <h2>7. Children</h2>
+  <h2>7. Children and age of consent</h2>
   <p>Lyfto is not directed at children under 13. We do not knowingly collect data from anyone under 13. If you believe a child under 13 has created an account, contact us and we will delete it.</p>
+  <p>If you live in the European Economic Area, the age at which you can consent to this kind of data processing on your own varies by country, from 13 to 16. If you are under your country's age of digital consent, you need a parent's or legal guardian's consent before creating a Lyfto account.</p>
 
   <h2>8. Security</h2>
-  <p>We use industry-standard security: TLS for all network traffic, hashed passwords, JWT-based authentication, and server-side API keys. No system is perfectly secure, so we cannot guarantee absolute protection — but we follow current best practices and act fast on any vulnerability we learn about.</p>
+  <p>We use industry-standard security: TLS for all network traffic, hashed passwords, JWT-based authentication, and server-side API keys. No system is perfectly secure, so we cannot guarantee absolute protection, but we follow current best practices and act fast on any vulnerability we learn about.</p>
 
   <h2>9. Changes to this policy</h2>
   <p>If we change this policy in a way that affects your rights, we will notify you in the app before the change takes effect. The "Last updated" date at the top always reflects the current version.</p>
