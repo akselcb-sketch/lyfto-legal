@@ -20,7 +20,7 @@
 
   <div class="eyebrow">Privacy Policy</div>
   <h1>How Lyfto handles your data.</h1>
-  <p class="updated">Last updated: 2026-09-25 (rev 5)</p>
+  <p class="updated">Last updated: 2026-10-23 (rev 6)</p>
 
   <p>This policy describes how the Lyfto mobile app ("Lyfto", "we", "us") collects, uses, and protects your information. By using Lyfto you agree to the practices below. If you do not agree, do not use the app.</p>
 
@@ -73,7 +73,7 @@
       <tr>
         <td>Coach chat history and coach memory notes</td>
         <td>Provide an AI coach that knows your training context and remembers things you have told it</td>
-        <td>On-device + Supabase (EU) for memory notes. Each message is sent to Google Gemini for processing (see section 4).</td>
+        <td>On-device + Supabase (EU) for memory notes. Each message is sent to Anthropic (Claude) for processing, with Google Gemini as a fallback (see section 4).</td>
       </tr>
       <tr>
         <td>Progress photos</td>
@@ -162,9 +162,14 @@
         <td>Cloud database + Storage + authentication so your data syncs across devices and the social features work. Servers in EU (Ireland). Private progress photos and post photos live in a private Storage bucket scoped to your user ID or to the post's audience; profile and post avatars live in a public Storage bucket so they render for anyone who can see the profile or post.</td>
       </tr>
       <tr>
+        <td><a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">Anthropic (Claude)</a></td>
+        <td>Coach messages and a context block from your training log (recent workouts, personal records, body weight, goals, and the memory notes you have given the coach, which can include injuries); what the app sends for the coach's line on the Home screen; workout programs you paste in for import; and avatar or post photos when they are automatically checked for safety before being shown to others. No email or password.</td>
+        <td>AI processing for the in-app coach, and automated image moderation for photos you upload to your profile or a post. Requests pass through our Supabase Edge Functions so the API key stays on our servers. Anthropic processes this data on our behalf under its Data Processing Addendum and may not use it to train its models. It deletes requests and responses within 30 days, unless its automated safety systems flag a request as breaking its usage policy, in which case it may keep it for up to 2 years, or the law requires it to keep it longer.</td>
+      </tr>
+      <tr>
         <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Gemini</a></td>
-        <td>Coach messages, a context block summarising your recent workouts and goals (no email or password), and avatar or post photos when they are automatically checked for safety before being shown to others</td>
-        <td>AI processing for the in-app coach, and automated image moderation for photos you upload to your profile or a post. Requests pass through our Supabase Edge Function so the API key stays on our servers. Google keeps coach questions and moderated images for a limited period of time for abuse monitoring, under Google's own terms.</td>
+        <td>The same kinds of data as Anthropic, but only for requests that Anthropic cannot answer, for example during an outage</td>
+        <td>Fallback AI processing, so the coach and image moderation keep working when Anthropic is unavailable. Requests pass through our Supabase Edge Functions so the API key stays on our servers. Google does not use this data to improve its products, but keeps requests and responses for a limited period of time to detect abuse, under its Gemini API terms.</td>
       </tr>
       <tr>
         <td><a href="https://sentry.io/privacy/" target="_blank" rel="noopener">Sentry</a></td>
@@ -194,6 +199,8 @@
     </tbody>
   </table>
 
+  <p><strong>Transfers outside the EEA.</strong> Anthropic and Google are based in the United States, so data sent to them leaves the EEA. Anthropic stores it in the United States and may also process it in other countries; the transfer is covered by the EU Standard Contractual Clauses in Anthropic's Data Processing Addendum. Google may store it temporarily in any country where Google or its agents have facilities, under Google's data processing terms for the Gemini API.</p>
+
   <p>We do not sell, rent, or trade your data. We do not use your data for advertising or third-party analytics. We do use first-party analytics, described in section 2, to understand app usage and fix problems; this data is not shared outside the services listed above.</p>
 
   <h2>5. Data retention</h2>
@@ -211,7 +218,7 @@
     <li>Analytics events (section 2) are kept with your user identifier removed, so a workout count or a feature-usage trend is not lost, but the row can no longer be linked back to you.</li>
     <li>Image-moderation records keep the storage path of a checked photo, but the photo itself is deleted.</li>
     <li>Reports other users filed about you, your posts, or your comments, and group bans that name you, are kept for safety and moderation purposes.</li>
-    <li>Google Gemini keeps coach questions and moderated images for a limited period of time for abuse monitoring, under Google's own terms.</li>
+    <li>Anthropic deletes coach questions and checked photos within 30 days, or keeps them for up to 2 years if its safety systems flag one as breaking its usage policy. When Google Gemini handled a request instead, Google keeps it for a limited period of time for abuse monitoring, under its Gemini API terms.</li>
     <li>Sentry crash logs are retained for up to 90 days for debugging and then auto-purged.</li>
     <li>Database backups roll off according to our hosting provider's backup retention schedule.</li>
   </ul>
