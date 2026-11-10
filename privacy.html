@@ -20,7 +20,7 @@
 
   <div class="eyebrow">Privacy Policy</div>
   <h1>How Lyfto handles your data.</h1>
-  <p class="updated">Last updated: 2026-11-09 (rev 6)</p>
+  <p class="updated">Last updated: 2026-11-10 (rev 6)</p>
 
   <p>This policy describes how the Lyfto mobile app ("Lyfto", "we", "us") collects, uses, and protects your information. By using Lyfto you agree to the practices below. If you do not agree, do not use the app.</p>
 
@@ -28,7 +28,7 @@
   <p>Lyfto is a workout-tracking app for iOS and Android. Lyfto is published by <strong>Aksel Cornelius Bjorland</strong>, who is the data controller responsible for your information. Contact: <a href="mailto:supportlyfto@gmail.com">supportlyfto@gmail.com</a>.</p>
 
   <h2>2. What we collect</h2>
-  <p>Only the data you explicitly enter or grant permission for. We do <strong>not</strong> collect location, contacts, or browsing history.</p>
+  <p>The data you enter or give permission for, plus basic usage data described in the table below. We do <strong>not</strong> collect location, contacts, or browsing history.</p>
 
   <table>
     <thead>
@@ -118,7 +118,12 @@
       <tr>
         <td>First-party product analytics (for example: onboarding steps completed, workouts started or finished, sets logged including their weight and reps, app version, platform)</td>
         <td>Understand how people use Lyfto so we can fix problems and improve the app</td>
-        <td>Supabase (EU). Not shared with any third-party analytics or advertising company. See section 4.</td>
+        <td>Supabase (EU). A small subset of these events is also sent to PostHog, see the next row. Not shared with any advertising company. See section 4.</td>
+      </tr>
+      <tr>
+        <td>Usage events and screen recordings sent to PostHog (events such as onboarding started, account created, first workout started, first set logged, workout finished, paywall and purchase steps; app version, operating system, device model, language and time zone; on iPhone and Android, screen recordings of new accounts)</td>
+        <td>Find and fix problems in the first-time experience, understand which steps people drop off at, and test app changes</td>
+        <td>PostHog, EU cloud (Frankfurt, Germany). Linked to your Lyfto user ID, not to your name or email. Weights and reps are not included. See "Usage data and screen recordings" below and section 4.</td>
       </tr>
       <tr>
         <td>Push notification token and push content</td>
@@ -139,6 +144,12 @@
   </table>
 
   <p><strong>Social features and visibility.</strong> Lyfto has optional social features (a profile, groups, posts, comments, likes, following, people search, and direct messages). When you create your account, we ask "Who can see your training?" with nothing preselected: you choose Public or Private before any profile is created. If you choose Private, other users cannot see your workouts, personal records, or training history, and you are not placed in a weekly league or shown in people search results as publicly discoverable. If you choose Public, any signed-in user can see your workout history, personal records, and strength score, and you may be placed in a weekly league with other users. You can change this choice at any time in your profile settings. Publishing an individual post (tapping "Del økten") is a separate, further choice: you pick the audience for that post (just you, a group, your followers, or public), regardless of your profile visibility. Other users can see, like, comment on, and report content you share, and report your profile, posts, comments, direct messages you send them, or an AI coach answer. We provide blocking and reporting tools, and content that enough people report is automatically hidden.</p>
+
+  <p><strong>Usage data and screen recordings.</strong> Lyfto sends a small set of usage events to PostHog, our analytics provider: onboarding started, account created (and how you signed up), first workout started, the first set logged in a workout (a count only, never the weight or reps), workout finished (number of sets), and paywall and purchase steps (where the paywall was opened from, which version of it you saw, and which product). Each event is linked to your Lyfto user ID, a random identifier that is not your name or email. Before you sign in, events use a random identifier created by the PostHog software on your phone. It is merged with your user ID when you sign in and replaced with a new random identifier when you sign out. The PostHog software also adds basic technical details to events: app version, operating system and version, device model, language, time zone and screen size. It does not use your advertising identifier and does not follow you across other companies' apps or websites. When we run A/B tests, PostHog also tells the app which version of a test to show you.</p>
+
+  <p>On iPhone and Android, for the first 7 days after you create an account, Lyfto may record your screen while you use the app: images of the app's own screens and where you tap. All text and all images on screen, including what you type, photos, coach chats, workout notes, and weights and reps, are hidden in the recording before it leaves your phone. Recording pauses while the purchase sheet is open. We watch recordings only to find and fix problems in the first-time experience.</p>
+
+  <p>You can turn this off at any time in Settings > Data &amp; sync > Share usage data. It is on by default. Turning it off stops events and recordings to PostHog immediately, and nothing is sent to PostHog on later launches. The switch does not affect the first-party analytics stored in our own database (Supabase), described above.</p>
 
   <h2>3. Permissions we ask for</h2>
   <p>You can revoke any of these in your device settings at any time.</p>
@@ -177,6 +188,11 @@
         <td>Detect and fix bugs. No workout content or chat content is sent.</td>
       </tr>
       <tr>
+        <td><a href="https://posthog.com/privacy" target="_blank" rel="noopener">PostHog</a></td>
+        <td>Your Lyfto user ID, the usage events described in section 2, basic app and device details (app version, operating system, device model, language, time zone, screen size), A/B test lookups, and, for new accounts on iPhone and Android, screen recordings with all text and images hidden</td>
+        <td>Usage analytics, A/B tests and screen recordings, to find and fix problems and improve Lyfto. PostHog acts as our processor under a data processing agreement and may not use the data for its own purposes. Data is hosted in the EU (Frankfurt, Germany). PostHog uses some sub-processors, and its staff may access data for support from outside the EU, under the transfer safeguards in the agreement.</td>
+      </tr>
+      <tr>
         <td><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple HealthKit (iOS only)</a></td>
         <td>Heart-rate (read), workout sessions (write)</td>
         <td>Stays on your device. Apple does not receive Lyfto-generated data. Not available on Android.</td>
@@ -201,10 +217,10 @@
 
   <p><strong>Transfers outside the EEA.</strong> Anthropic and Google are based in the United States, so data sent to them leaves the EEA. Anthropic stores it in the United States and may also process it in other countries; the transfer is covered by the EU Standard Contractual Clauses in Anthropic's Data Processing Addendum. Google may store it temporarily in any country where Google or its agents have facilities, under Google's data processing terms for the Gemini API.</p>
 
-  <p>We do not sell, rent, or trade your data. We do not use your data for advertising or third-party analytics. We do use first-party analytics, described in section 2, to understand app usage and fix problems; this data is not shared outside the services listed above.</p>
+  <p>We do not sell, rent, or trade your data, and we do not use it for advertising. We use first-party analytics and PostHog, described in section 2, to understand app usage and fix problems. This data is not shared outside the services listed above.</p>
 
   <h2>5. Data retention</h2>
-  <p>Your data is kept for as long as your account exists. When you delete your account inside the app (Social tab → your profile picture → Settings → Delete account), the following happens immediately:</p>
+  <p>Your data is kept for as long as your account exists, except usage events and screen recordings held by PostHog, which are kept for up to 12 months and up to 30 days respectively. When you delete your account inside the app (Social tab → your profile picture → Settings → Delete account), the following happens immediately:</p>
   <ul>
     <li>All workouts, personal records, body measurements, progress photos, coach memory notes, strength goals, templates, custom programs, custom exercises, and favorites are deleted from Supabase.</li>
     <li>Your social data, profile, posts, post photos, comments, likes, follows, group memberships, direct messages (both sides of every conversation), blocks, push tokens, league placement, referral records, and gift links, is deleted from Supabase.</li>
@@ -219,6 +235,7 @@
     <li>Image-moderation records keep the storage path of a checked photo, but the photo itself is deleted.</li>
     <li>Reports other users filed about you, your posts, or your comments, and group bans that name you, are kept for safety and moderation purposes.</li>
     <li>Anthropic deletes coach questions and checked photos within 30 days, or keeps them for up to 2 years if its safety systems flag one as breaking its usage policy. When Google Gemini handled a request instead, Google keeps it for a limited period of time for abuse monitoring, under its Gemini API terms.</li>
+    <li>Usage events and screen recordings in PostHog are not deleted automatically when you delete your account. Email us and we will delete them within 30 days. Otherwise PostHog removes events after 12 months and screen recordings after 30 days.</li>
     <li>Sentry crash logs are retained for up to 90 days for debugging and then auto-purged.</li>
     <li>Database backups roll off according to our hosting provider's backup retention schedule.</li>
   </ul>
@@ -226,12 +243,13 @@
 
   <h2>6. Your rights (GDPR)</h2>
   <p>If you live in the European Economic Area, the UK, or Switzerland, you have these rights under GDPR:</p>
+  <p>Legal basis: we process usage events and screen recordings based on our legitimate interest in understanding and improving Lyfto (GDPR Art. 6(1)(f)). You can object at any time, see below.</p>
   <ul>
     <li><strong>Access</strong>: export all your data via Profile → Export Data (JSON file).</li>
     <li><strong>Rectification</strong>: edit any workout, set, or measurement directly in the app.</li>
     <li><strong>Erasure</strong>: delete your account from Profile → Delete Account, or email us.</li>
     <li><strong>Portability</strong>: the export is a standard JSON file you can take with you.</li>
-    <li><strong>Object / restrict processing</strong>: email us.</li>
+    <li><strong>Object / restrict processing</strong>: turn off Share usage data in Settings > Data &amp; sync to stop usage events and screen recordings at once, or email us.</li>
     <li><strong>Lodge a complaint</strong>: contact your local data protection authority.</li>
   </ul>
 
